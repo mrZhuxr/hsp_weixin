@@ -1,9 +1,6 @@
 <template>
-    <!-- <web-view
-        :src="`https://showroom-oss.vitoreality.com/Oasis_HSP/index.html#/login?openid=${loginCode}`"
-    ></web-view> -->
     <web-view
-        :src="`https://showroom-oss.vitoreality.com/Oasis_HSP/index.html#/login?openid=${loginCode}`"
+        :src="`https://showroom-oss.vitoreality.com/Oasis_HSP/index.html#/login?wxCode=${loginCode}`"
     ></web-view>
 </template>
 
@@ -16,6 +13,7 @@ onMounted(() => {
     uni.login({
         success: function (res) {
             if (res.code) {
+                console.log('🚀 ~ file: index.vue:16 ~ onMounted ~ res.code:', res.code)
                 loginCode.value = res.code
                 // 获取到了res.code
             } else {
